@@ -1,10 +1,12 @@
 package cn.ssd.wean2016.springsecurity.service.impl;
 
+import cn.ssd.wean2016.springsecurity.dao.IUserRepository;
 import cn.ssd.wean2016.springsecurity.dao.UserMapper;
 import cn.ssd.wean2016.springsecurity.model.LoginDetail;
 import cn.ssd.wean2016.springsecurity.model.TokenDetail;
 import cn.ssd.wean2016.springsecurity.service.LoginService;
 import cn.ssd.wean2016.springsecurity.utils.TokenUtils;
+import org.apache.ibatis.annotations.Arg;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
@@ -18,6 +20,9 @@ import org.springframework.stereotype.Service;
 @Service
 public class LoginServiceImpl implements LoginService {
 
+    @Autowired
+    private IUserRepository userRepository;
+
     private final UserMapper userMapper;
     private final TokenUtils tokenUtils;
 
@@ -29,7 +34,7 @@ public class LoginServiceImpl implements LoginService {
 
     @Override
     public LoginDetail getLoginDetail(String username) {
-        return userMapper.getUserFromDatabase(username);
+        return userRepository.findSysUserByUserName(username);
     }
 
     @Override

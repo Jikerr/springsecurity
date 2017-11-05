@@ -1,6 +1,6 @@
 package cn.ssd.wean2016.springsecurity.dao;
 
-import cn.ssd.wean2016.springsecurity.model.domain.User;
+import cn.ssd.wean2016.springsecurity.model.domain.SysUser;
 import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Component;
@@ -16,6 +16,6 @@ import org.springframework.stereotype.Component;
 public interface UserMapper {
 
 
-    User getUserFromDatabase(@Param("username") String username);
+    SysUser getUserFromDatabase(@Param("username") String username);
 
 }

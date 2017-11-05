@@ -1,7 +1,7 @@
 package cn.ssd.wean2016.springsecurity;
 
 import cn.ssd.wean2016.springsecurity.dao.UserMapper;
-import cn.ssd.wean2016.springsecurity.model.domain.User;
+import cn.ssd.wean2016.springsecurity.model.domain.SysUser;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +17,7 @@ public class SpringsecurityApplicationTests {
 
 	@Test
     public void testGetUser(){
-        User user = userMapper.getUserFromDatabase("1");
+        SysUser user = userMapper.getUserFromDatabase("1");
         System.out.println(user);
     }
 

@@ -1,6 +1,6 @@
 package cn.ssd.wean2016.springsecurity.model;
 
-import cn.ssd.wean2016.springsecurity.model.domain.User;
+import cn.ssd.wean2016.springsecurity.model.domain.SysUser;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.AuthorityUtils;
 
@@ -15,10 +15,10 @@ import java.util.Date;
  */
 public class SecurityModelFactory {
 
-    public static UserDetailImpl create(User user) {
+    public static UserDetailImpl create(SysUser user) {
         Collection<? extends GrantedAuthority> authorities;
         try {
-            authorities = AuthorityUtils.commaSeparatedStringToAuthorityList(user.getAuthorities());
+            authorities = AuthorityUtils.commaSeparatedStringToAuthorityList(null);
         } catch (Exception e) {
             authorities = null;
         }
